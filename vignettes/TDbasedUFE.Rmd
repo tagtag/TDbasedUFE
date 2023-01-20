@@ -32,7 +32,7 @@ as much as possible in an user friendly manner.
 Although in the future, I am planning to implement all the features possible 
 by TDbasedUFE in this R package, at the moment, it includes only basic features.
 
-# What is tensor and tensor decomposition?
+# What are tensor and tensor decomposition?
 
 Although [tensor](https://bioconductor.org/packages/release/bioc/vignettes/DelayedTensor/inst/doc/DelayedTensor_1.html#12_What_is_Tensor) and [tensor decomposition](https://bioconductor.org/packages/release/bioc/vignettes/DelayedTensor/inst/doc/DelayedTensor_1.html#13_What_is_Tensor_Decomposition) were fully described in vignettes of 
 DelayedTensor[@DelayedTensor], we also briefly describe these.
@@ -46,16 +46,49 @@ Since the experimental design has become more and more complicated, tensor is an
 
 Although tensor can store very complicated structure well, it does not always mean that it has ability to help us to understand these complicated structure. In order to decompose tensor, tensor decomposition was developed. There are various way to compose tensor. Usueally, tensor decomposition (TD) is to decompose tensor into pricuct some of vectors and tensors. 
 
-The most popular TD is CP decomposition, 
+The most popular TD is CP decomposition, which can decompose tensor into product 
+some of vectors. For example, $x_{ijk} \in \mathbb{R}^{N \times M \times K}$ can
+be decomposed into the product sum of three vectors, $\mathbb{R}^N,
+\mathbb{R}^M$, and $\mathbb{R}^K$. 
 
+![Tensor Decompositions](./fig1.jpg){width=50%}
 
+which can be mathematically expressed as
+$$
+x_{ijk} = \sum_\ell \lambda_\ell u_{\ell i} u_{\ell j} u_{\ell k}
+$$
+Alternatively, more asvanced way, tensor train decomposition,  can decomposes the tensor to product of a mixuture of matrix and tensor as
+$$
+x_{ijk} = \sum_{\ell_1} \sum_{\ell_2} R_{\ell_1 i} R_{\ell_1 \ell_2 j} R_{\ell_2 k}
+$$
+However, in this specific study, we employed more primitive way of decomposition, Tucker decomposition, as
+$$
+x_{ijk} = \sum_{\ell_1} \sum_{\ell_2} \sum_{\ell_3} G(\ell_1 \ell_2 \ell_3) u_{\ell_1 i} u_{\ell_2 j} u_{\ell_3 k}
+$$
+where $G \in \mathbb{R}^{N \times M \times K}$ is core tensor that evaluate the weight of  product 
+$  u_{\ell_1 i} u_{\ell_2 j} u_{\ell_3 k}$ and $u_{\ell_1 i} \in \mathbb{R}^{N \times N},
+u_{\ell_2 j} \in \mathbb{R}^{M \times M}, u_{\ell_3 k} \in \mathbb{R}^{K \times K}$ are singular value matrices and are orthogonal matricies. 
 
-
-
+Although there are no uniqueness of Tucker decomposition, we sepfifically employed 
+higher order singular value decomposition (HOSVD) [@Taguchi2020] to get Tucker decomposition.
+The reason why we employed Tucker decomosition was fully described in my book[@Taguchi2020].
 
  
 
-## Subsection 
+## Tensor decomposition based unsupervised feature extraction.
+
+Here we briefly describe how we can make use of HOSVD for the feature selection.
+Suppose $x_{ijk}$ represents the expression of gene $i$ of the $k$th tissue of the $j$th subject (person) and the task is to select genes whose expression is distict between patients and healthy controls only at one specific tissue.
+In order that, we need to select  $u_{\ell_2 j}$ attributed to $j$th subject which is distinct between healthy control and patients and  $u_{\ell_3 k}$ attributed to $k$th tissue is $k$th tissue specific. Then we next identify which $G(\ell_1 \ell_2 \ell_3)$ has the largest absolute value with fixed $\ell_2$ and $\ell_3$ that correspond to ditinction between patient and healthy control and tissue specificity, respectvely. Finally, with assuming that $u_{\ell_1 i}$ obeys Gaussian distribution (null hypothesis), $P$-values are attributed to $i$th gene.
+$P$-values are corrected with considering multiple comparison corrections (specifically, we employed Benjamini Hochberg method[@Taguchi2020]) and genes associated with adjusted P-values less than 0.01 are usually selected.
+
+#Optimization of standard deviation
+
+
+
+
+
+
 ```{r}
 sessionInfo()
 ```

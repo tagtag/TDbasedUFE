@@ -36,7 +36,7 @@ devtools::install_github("tagtag/TDbasedUFE")
 
 ## Manuscript
 
-The theoretical back graound of this package was described in the following book:
+The theoretical back ground of this package was described in the following book:
 
 ***"Unsupervised Feature Extraction Applied to Bioinformatics:
 A PCA Based and TD Based Approach"*** by Y-h. Taguchi
