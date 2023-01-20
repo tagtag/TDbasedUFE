@@ -3,7 +3,7 @@
 
 ## usethis namespace: start
 #' @importFrom GenomicRanges GRanges
-#' @importFrom meyhod new
+#' @importFrom methods new
 #' @importFrom rTensor hosvd as.tensor
 #' @importFrom stats pchisq p.adjust optim
 #' @importFrom graphics hist par arrows boxplot abline
