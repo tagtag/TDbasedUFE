@@ -5,10 +5,12 @@
 \title{Title
 Select singular value vectors from HOSVD}
 \usage{
-selectSingularValueVectorSmall(HOSVD)
+selectSingularValueVectorSmall(HOSVD, input_all = NULL)
 }
 \arguments{
 \item{HOSVD}{output from HOSVD}
+
+\item{input_all}{if ist is no null, no interactive mode is activated but provided values are used.}
 }
 \value{
 Selected singular value vector IDs

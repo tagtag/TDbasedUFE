@@ -5,12 +5,14 @@
 \title{Title
 Select singular value vectors from HOSVD (boxplot version)}
 \usage{
-selectSingularValueVectorLarge(HOSVD, cond)
+selectSingularValueVectorLarge(HOSVD, cond, input_all = NULL)
 }
 \arguments{
 \item{HOSVD}{output from HOSVD}
 
 \item{cond}{Labels fo select singlar value vector number}
+
+\item{input_all}{if ist is no null, no interactive mode is activated but provided values are used.}
 }
 \value{
 Selected singular value vector IDs

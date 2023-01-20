@@ -23,7 +23,7 @@ devtools::install_github("tagtag/TDbasedUFE")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-#library(TDbasedUFE)
+library(TDbasedUFE)
 ## basic example code
 ```
 

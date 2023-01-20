@@ -2,6 +2,7 @@
 #'Select singular value vectors from HOSVD (boxplot version)
 #' @param HOSVD output from HOSVD
 #' @param cond Labels fo select singlar value vector number
+#' @param input_all if ist is no null, no interactive mode is activated but provided values are used.
 #'
 #' @return Selected singular value vector IDs
 #' @export

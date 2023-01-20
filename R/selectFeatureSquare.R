@@ -6,6 +6,7 @@
 #' @param de Initial value for optimization of standard deviation
 #' @param p0 Threshold P-value
 #' @param breaks The number of bins
+#' @param interact if interact mode or not
 #'
 #' @return List that includes selected features and computed P-value
 #' @export

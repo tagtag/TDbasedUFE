@@ -1,6 +1,7 @@
 #' Title
 #' Select singular value vectors from HOSVD
 #' @param HOSVD output from HOSVD
+#' @param input_all if ist is no null, no interactive mode is activated but provided values are used.
 #'
 #' @return Selected singular value vector IDs
 #' @export

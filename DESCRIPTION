@@ -1,13 +1,24 @@
 Package: TDbasedUFE
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Tensor Decomposition Bassed Unsupervised Feature Extraction
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Y-h. Taguchi
+Maintainer: TY-h. taguchi <tag@granular.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: CC0
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/tagtag/TDbasedUFE
 BugReports: https://github.com/tagtag/TDbasedUFE/issues
+Imports: 
+    GenomicRanges,
+    rTensor
+RoxygenNote: 7.2.0
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

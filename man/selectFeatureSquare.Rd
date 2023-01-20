@@ -11,7 +11,8 @@ selectFeatureSquare(
   Multi,
   de = rep(1e-04, dim(HOSVD$U[[3]])[2]),
   p0 = 0.01,
-  breaks = 100
+  breaks = 100,
+  interact = T
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ selectFeatureSquare(
 \item{p0}{Threshold P-value}
 
 \item{breaks}{The number of bins}
+
+\item{interact}{if interact mode or not}
 }
 \value{
 List that includes selected features and computed P-value
