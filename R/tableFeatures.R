@@ -8,10 +8,11 @@
 #'
 #' @examples
 #' set.seed(2)
+#' require(rTensor)
 #' HOSVD <- hosvd(as.tensor(array(runif(10000*3*3),c(10000,3,3))),c(10,3,3))
 #' input_all <- c(2,2)
 #' index <- selectFeature(HOSVD,input_all,de=0.01,p0=0.01)
-#' index$index[1:100] <- T
+#' index$index[1:100] <- TRUE
 #' Z <- PrepareSummarizedExperimentTensor(sample=matrix(as.character(1:9),c(3,3)),
 #'                                       feature=as.character(1:10000),
 #'                                       value=array(runif(10000*3*3),c(10,3,3)))

@@ -11,7 +11,7 @@
 #'                                       feature=as.character(1:10),
 #'                                       value=array(runif(10*3*2),c(10,3,2)))
 #'                                       HOSVD <- computeHosvd(Z)
-#'               input_all <- selectSingularValueVectorSmall(HOSVD)
+#'               input_all <- selectSingularValueVectorSmall(HOSVD,input_all=c(1,1))
 selectSingularValueVectorSmall <- function(HOSVD,input_all=NULL){
     if (!is.null(input_all))
     {

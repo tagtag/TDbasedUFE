@@ -13,7 +13,12 @@ URL: https://github.com/tagtag/TDbasedUFE
 BugReports: https://github.com/tagtag/TDbasedUFE/issues
 Imports: 
     GenomicRanges,
-    rTensor
+    rTensor,
+    readr,
+    methods,
+    MOFAdata,
+    tximport,
+    tximportData
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 Suggests: 

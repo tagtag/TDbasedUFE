@@ -27,5 +27,5 @@ Z <- PrepareSummarizedExperimentTensor(sample=matrix(as.character(1:6),c(3,2)),
                                       value=array(runif(10*3*2),c(10,3,2)))
                                       HOSVD <- computeHosvd(Z)
                                       cond <- list(0,c("A","B","C"),c("A","B"))
-              input_all <- selectSingularValueVectorLarge(HOSVD,cond)
+              input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
 }

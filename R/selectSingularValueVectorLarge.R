@@ -13,7 +13,7 @@
 #'                                       value=array(runif(10*3*2),c(10,3,2)))
 #'                                       HOSVD <- computeHosvd(Z)
 #'                                       cond <- list(0,c("A","B","C"),c("A","B"))
-#'               input_all <- selectSingularValueVectorLarge(HOSVD,cond)
+#'               input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
 selectSingularValueVectorLarge <- function(HOSVD,cond,input_all=NULL){
     if (!is.null(input_all))
     {

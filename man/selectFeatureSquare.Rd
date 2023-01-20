@@ -50,6 +50,6 @@ Z <- PrepareSummarizedExperimentTensorSquare(sample=matrix(colnames(omics1),1),
             sampleData=list(NA))
             HOSVD <- computeHosvdSqure(Z)
               cond <- list(0,rep(1:2,each=5),c("A","B"))
-            input_all <- selectSingularValueVectorLarge(HOSVD,cond)
-            index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1))
+            input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
+            index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1),interact=FALSE)
 }

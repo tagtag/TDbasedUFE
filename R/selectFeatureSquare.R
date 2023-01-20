@@ -24,8 +24,8 @@
 #'             sampleData=list(NA))
 #'             HOSVD <- computeHosvdSqure(Z)
 #'               cond <- list(0,rep(1:2,each=5),c("A","B"))
-#'             input_all <- selectSingularValueVectorLarge(HOSVD,cond)
-#'             index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1))
+#'             input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
+#'             index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1),interact=FALSE)
 selectFeatureSquare<-function(HOSVD,input_all,Multi,
                               de=rep(1e-4,dim(HOSVD$U[[3]])[2]),p0=0.01,breaks=100,interact=T)
 {
