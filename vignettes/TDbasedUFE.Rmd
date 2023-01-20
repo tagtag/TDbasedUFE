@@ -32,6 +32,25 @@ as much as possible in an user friendly manner.
 Although in the future, I am planning to implement all the features possible 
 by TDbasedUFE in this R package, at the moment, it includes only basic features.
 
+# What is tensor and tensor decomposition?
+
+Although [tensor](https://bioconductor.org/packages/release/bioc/vignettes/DelayedTensor/inst/doc/DelayedTensor_1.html#12_What_is_Tensor) and [tensor decomposition](https://bioconductor.org/packages/release/bioc/vignettes/DelayedTensor/inst/doc/DelayedTensor_1.html#13_What_is_Tensor_Decomposition) were fully described in vignettes of 
+DelayedTensor[@DelayedTensor], we also briefly describe these.
+
+Tensor is a natural extension of matrix that has only rows and columns, whereas
+tensore more number of "rows" (or "columns"). For example, three mode tensor,
+$x_{ijk} \in \mathbb{R}^{N \times M \times K}$, has three suffix, $i \in \mathbb{N}, j \in \mathbb{N}$, and $k \in \mathbb{N}$, each of which 
+ranges $[1, N], [1, K]$ and $[1,M]$. 
+This representation fitted with that of genomic datasets, e. g., $x_{ijk}$ can represent gene expression of $i$th gene of $k$th tissue of $j$th subject (person). If the measurements are performed over mutliple conditions, e.g., different time points, we can add additional sufix that corresponds to time. Alternatively, we can also make use of tensor to store multiomics data if we can add additional suffix that represent which of multiomics data is stored in the elements of tensor. 
+Since the experimental design has become more and more complicated, tensor is an ideal data structure to store modern genomic observations.
+
+Although tensor can store very complicated structure well, it does not always mean that it has ability to help us to understand these complicated structure. In order to decompose tensor, tensor decomposition was developed. There are various way to compose tensor. Usueally, tensor decomposition (TD) is to decompose tensor into pricuct some of vectors and tensors. 
+
+The most popular TD is CP decomposition, 
+
+
+
+
 
 
  

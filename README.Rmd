@@ -30,32 +30,29 @@ TDbasedUFE from [GitHub](https://github.com/) with:
 devtools::install_github("tagtag/TDbasedUFE")
 ```
 
-## Example
+# TDbasedUFE
 
-This is a basic example which shows you how to solve a common problem:
+**Tensor decomposition based unsupervised feature extraction**
 
-```{r example}
-library(TDbasedUFE)
-## basic example code
+## Manuscript
+
+The theoretical back graound of this package was described in the following book:
+
+***"Unsupervised Feature Extraction Applied to Bioinformatics:
+A PCA Based and TD Based Approach"*** by Y-h. Taguchi
+
+Please cite the book as:
+```latex
+@book{Taguchi2020,
+  doi = {10.1007/978-3-030-22456-1},
+  url = {https://doi.org/10.1007/978-3-030-22456-1},
+  year = {2020},
+  publisher = {Springer International Publishing},
+  author = {Y-H. Taguchi},
+  title = {Unsupervised Feature Extraction Applied to Bioinformatics}
+}
 ```
 
-What is special about using `README.Rmd` instead of just 
-`README.md`? You can include R chunks like so:
+[![DOI]](https://doi.org/10.1007/978-3-030-22456-1)
 
-```{r cars}
-summary(cars)
-```
 
-You'll still need to render `README.Rmd` regularly, 
-to keep `README.md` up-to-date. `devtools::build_readme()` 
-is handy for this. You could also use GitHub Actions to re-render
-`README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting 
-figure files, so they display on GitHub and CRAN.
