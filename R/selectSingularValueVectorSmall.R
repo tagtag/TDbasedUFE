@@ -1,17 +1,19 @@
 #' Title
 #' Select singular value vectors from HOSVD
 #' @param HOSVD output from HOSVD
-#' @param input_all if ist is no null, no interactive mode is activated but provided values are used.
+#' @param input_all if ist is no null, no interactive mode is
+#'  activated but provided values are used.
 #'
 #' @return Selected singular value vector IDs
 #' @export
 #'
 #' @examples
-#'Z <- PrepareSummarizedExperimentTensor(sample=matrix(as.character(1:6),c(3,2)),
-#'                                       feature=as.character(1:10),
-#'                                       value=array(runif(10*3*2),c(10,3,2)))
-#'                                       HOSVD <- computeHosvd(Z)
-#'               input_all <- selectSingularValueVectorSmall(HOSVD,input_all=c(1,1))
+#'Z <- PrepareSummarizedExperimentTensor(
+#'sample=matrix(as.character(seq_len(6)),c(3,2)),
+#' feature=as.character(seq_len(10)),
+#'  value=array(runif(10*3*2),c(10,3,2)))
+#'  HOSVD <- computeHosvd(Z)
+#' input_all <- selectSingularValueVectorSmall(HOSVD,input_all=c(1,1))
 selectSingularValueVectorSmall <- function(HOSVD,input_all=NULL){
     if (!is.null(input_all))
     {
@@ -21,7 +23,7 @@ selectSingularValueVectorSmall <- function(HOSVD,input_all=NULL){
     for (i in 2:length(HOSVD$U))
     {
         j<-1
-        while(j %in% 1:dim(HOSVD$U[[i]])[2]){
+        while(j %in% seq_len(dim(HOSVD$U[[i]])[2])){
             if(length(unique(sign(HOSVD$U[[i]][,j])))==1)
             {
                 RANGE <- range(c(0,range(HOSVD$U[[i]][,j])))

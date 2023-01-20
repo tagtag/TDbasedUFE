@@ -3,18 +3,20 @@
 \name{computeHosvdSqure}
 \alias{computeHosvdSqure}
 \title{Title
-Compute higher order singular value decomposition from the tensor generated from squared matrix}
+Compute higher order singular value decomposition from the
+tensor generated from squared matrix}
 \usage{
 computeHosvdSqure(
   Z,
   dims = unlist(lapply(dim(Z@value), function(x) {
      min(10, x)
  })),
-  scale = T
+  scale = TRUE
 )
 }
 \arguments{
-\item{Z}{A tensor including sample names, feature values, associated with featureRange and sample properties}
+\item{Z}{A tensor including sample names, feature values,
+associated with featureRange and sample properties}
 
 \item{dims}{dimensions to be compued by HOSVD}
 
@@ -25,15 +27,17 @@ List that includes output from HOSVD
 }
 \description{
 Title
-Compute higher order singular value decomposition from the tensor generated from squared matrix
+Compute higher order singular value decomposition from the
+tensor generated from squared matrix
 }
 \examples{
 omics1 <- matrix(runif(100),10)
-dimnames(omics1) <- list(1:10,1:10)
+dimnames(omics1) <- list(seq_len(10),seq_len(10))
 omics2 <- matrix(runif(100),10)
 dimnames(omics2) <- dimnames(omics1)
 Multi <- list(omics1,omics2)
-Z <- PrepareSummarizedExperimentTensorSquare(sample=matrix(colnames(omics1),1),
+Z <- PrepareSummarizedExperimentTensorSquare(
+            sample=matrix(colnames(omics1),1),
             feature=list(omics1=rownames(omics1),
             omics2=rownames(omics2)),
             value=convertSquare(Multi),

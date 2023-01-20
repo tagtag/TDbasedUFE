@@ -25,7 +25,8 @@ PrepareSummarizedExperimentTensor(
 \item{sampleData}{Sample property (labels etc)}
 }
 \value{
-A tensor including sample names, feature id, feature values, associated with featureRange and sample properties
+A tensor including sample names, feature id,
+feature values, associated with featureRange and sample properties
 }
 \description{
 Title
@@ -33,7 +34,8 @@ Generate feature values formatted as a tensor format
 }
 \examples{
 require(GenomicRanges)
-Z <- PrepareSummarizedExperimentTensor(sample=matrix(as.character(1:6),c(3,2)),
-                                      feature=as.character(1:10),
-                                      value=array(runif(10*3*2),c(10,3,2)))
+Z <- PrepareSummarizedExperimentTensor(
+sample=matrix(as.character(seq_len(6)),c(3,2)),
+feature=as.character(seq_len(10)),
+ value=array(runif(10*3*2),c(10,3,2)))
 }

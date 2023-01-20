@@ -17,7 +17,7 @@ Generate squared tensor from multiomics data
 }
 \examples{
 omics1 <- matrix(runif(100),10)
-dimnames(omics1) <- list(1:10,1:10)
+dimnames(omics1) <- list(seq_len(10),seq_len(10))
 omics2 <- matrix(runif(100),10)
 dimnames(omics2) <- dimnames(omics1)
 Multi <- list(omics1,omics2)

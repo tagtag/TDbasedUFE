@@ -12,7 +12,7 @@ selectFeatureSquare(
   de = rep(1e-04, dim(HOSVD$U[[3]])[2]),
   p0 = 0.01,
   breaks = 100,
-  interact = T
+  interact = TRUE
 )
 }
 \arguments{
@@ -39,17 +39,19 @@ Select features (for tensor generated from squared matrix)
 }
 \examples{
 omics1 <- matrix(runif(100000),ncol=10)
-dimnames(omics1) <- list(1:10000,1:10)
+dimnames(omics1) <- list(seq_len(10000),seq_len(10))
 omics2 <- matrix(runif(100000),ncol=10)
 dimnames(omics2) <- dimnames(omics1)
 Multi <- list(omics1,omics2)
-Z <- PrepareSummarizedExperimentTensorSquare(sample=matrix(colnames(omics1),1),
-            feature=list(omics1=rownames(omics1),
-            omics2=rownames(omics2)),
-            value=convertSquare(Multi),
-            sampleData=list(NA))
-            HOSVD <- computeHosvdSqure(Z)
-              cond <- list(0,rep(1:2,each=5),c("A","B"))
-            input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
-            index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1),interact=FALSE)
+Z <- PrepareSummarizedExperimentTensorSquare(
+sample=matrix(colnames(omics1),1),
+feature=list(omics1=rownames(omics1),
+omics2=rownames(omics2)),
+value=convertSquare(Multi),
+sampleData=list(NA))
+HOSVD <- computeHosvdSqure(Z)
+cond <- list(0,rep(seq_len(2),each=5),c("A","B"))
+input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
+index <- selectFeatureSquare(HOSVD,input_all,Multi,de=c(0.1,0.1),
+interact=FALSE)
 }

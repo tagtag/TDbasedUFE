@@ -6,7 +6,7 @@
 \alias{TDbasedUFE-package}
 \title{TDbasedUFE: Tensor Decomposition Bassed Unsupervised Feature Extraction}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+This is a comprehensive package to perform Tensor decomposition based unsupervised feature extraction. It can perform unsupervised feature extraction. It uses tensor decompission. It is applicable to gene expression, DNA methylation, and histone modification etc. It can perform multiomics analysis. It is also applicable to single cell omics data sets.
 }
 \seealso{
 Useful links:
@@ -14,6 +14,10 @@ Useful links:
   \item \url{https://github.com/tagtag/TDbasedUFE}
   \item Report bugs at \url{https://github.com/tagtag/TDbasedUFE/issues}
 }
+
+}
+\author{
+\strong{Maintainer}: Taguchi Y-h. \email{tag@granular.com} (\href{https://orcid.org/0000-0003-0867-8986}{ORCID})
 
 }
 \keyword{internal}

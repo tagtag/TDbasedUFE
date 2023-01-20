@@ -12,7 +12,8 @@ selectSingularValueVectorLarge(HOSVD, cond, input_all = NULL)
 
 \item{cond}{Labels fo select singlar value vector number}
 
-\item{input_all}{if ist is no null, no interactive mode is activated but provided values are used.}
+\item{input_all}{if ist is no null, no interactive mode is
+activated but provided values are used.}
 }
 \value{
 Selected singular value vector IDs
@@ -22,10 +23,11 @@ Title
 Select singular value vectors from HOSVD (boxplot version)
 }
 \examples{
-Z <- PrepareSummarizedExperimentTensor(sample=matrix(as.character(1:6),c(3,2)),
-                                      feature=as.character(1:10),
-                                      value=array(runif(10*3*2),c(10,3,2)))
-                                      HOSVD <- computeHosvd(Z)
-                                      cond <- list(0,c("A","B","C"),c("A","B"))
-              input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
+Z <- PrepareSummarizedExperimentTensor(
+sample=matrix(as.character(seq_len(6)),c(3,2)),
+feature=as.character(seq_len(10)),
+ value=array(runif(10*3*2),c(10,3,2)))
+HOSVD <- computeHosvd(Z)
+ cond <- list(0,c("A","B","C"),c("A","B"))
+ input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
 }

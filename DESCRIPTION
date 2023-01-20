@@ -2,13 +2,27 @@ Package: TDbasedUFE
 Type: Package
 Title: Tensor Decomposition Bassed Unsupervised Feature Extraction
 Version: 0.1.0
-Author: Y-h. Taguchi
-Maintainer: TY-h. taguchi <tag@granular.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: CC0
+Authors@R: 
+    person("Taguchi", "Y-h.", ,
+    "tag@granular.com", role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0003-0867-8986"))
+Description: 
+    This is a comprehensive package to perform
+    Tensor decomposition based unsupervised feature extraction.
+    It can perform unsupervised feature extraction.
+    It uses tensor decompission.
+    It is  applicable to gene expression, DNA methylation, and 
+    histone modification etc.
+    It can perform multiomics analysis.
+    It is also applicable to single cell omics data sets.
+biocViews: 
+    GeneExpression, 
+    FeatureExtraction, 
+    MethylationArray,
+    SingleCell
+License: GPL-3
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 URL: https://github.com/tagtag/TDbasedUFE
 BugReports: https://github.com/tagtag/TDbasedUFE/issues
 Imports: 
@@ -18,7 +32,10 @@ Imports:
     methods,
     MOFAdata,
     tximport,
-    tximportData
+    tximportData,
+    graphics,
+    stats,
+    utils
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 Suggests: 

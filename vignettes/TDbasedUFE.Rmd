@@ -1,6 +1,11 @@
 ---
 title: "TDbasedUFE"
+author:
+- name: Y-h. Taguchi
+  affiliation:  Department of Physics, Chuo University, Tokyo 112-8551, Japan
+  email: tag@granular.com
 output: rmarkdown::html_vignette
+bibliography: references.bib 
 vignette: >
   %\VignetteIndexEntry{TDbasedUFE}
   %\VignetteEngine{knitr::rmarkdown}
@@ -17,3 +22,22 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(TDbasedUFE)
 ```
+
+# Introduction
+
+TDbasedUFE is a R package that intends to perform various abalyses using
+Tensor decomposition based unsupervised feature extraction (TDbasedUFE) 
+[@Taguchi2020]
+as much as possible in an user friendly manner. 
+Although in the future, I am planning to implement all the features possible 
+by TDbasedUFE in this R package, at the moment, it includes only basic features.
+
+
+
+ 
+
+## Subsection 
+```{r}
+sessionInfo()
+```
+
