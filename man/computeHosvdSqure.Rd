@@ -8,7 +8,7 @@ tensor generated from squared matrix}
 \usage{
 computeHosvdSqure(
   Z,
-  dims = unlist(lapply(dim(Z@value), function(x) {
+  dims = unlist(lapply(dim(attr(Z, "value")), function(x) {
      min(10, x)
  })),
   scale = TRUE

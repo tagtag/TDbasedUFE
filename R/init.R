@@ -16,3 +16,6 @@ setClass("SummarizedExperimentTensor",slot=list(sample="array",
 setClass("SummarizedExperimentTensorSquare",slot=list(sample="array",
     feature="list",value="array",
     featureRange="GRanges",sampleData="list"))
+
+
+

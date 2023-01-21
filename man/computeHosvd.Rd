@@ -5,7 +5,7 @@
 \title{Title
 Compute higher order singular value decomposition}
 \usage{
-computeHosvd(Z, dims = c(10, dim(Z@value)[-1]), scale = TRUE)
+computeHosvd(Z, dims = c(10, dim(attr(Z, "value"))[-1]), scale = TRUE)
 }
 \arguments{
 \item{Z}{array that includes omics data}

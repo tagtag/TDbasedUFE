@@ -22,15 +22,15 @@
 #'             value=convertSquare(Multi),
 #'             sampleData=list(NA))
 #'             HOSVD <- computeHosvdSqure(Z)
-computeHosvdSqure <-function(Z,dims=unlist(lapply(dim(Z@value),
+computeHosvdSqure <-function(Z,dims=unlist(lapply(dim(attr(Z,"value")),
     function(x){min(10,x)})),scale=TRUE)
 {
     if (scale)
     {
-        mean <- apply(Z@value,length(dim(Z@value)),mean)
-        Z@value <- aperm(aperm(Z@value,c(length(dim(Z@value)),
-            c(seq_len(length(dim(Z@value))-1))))/mean,
-            c(c(2:length(dim(Z@value)),1)))
+        mean <- apply(attr(Z,"value"),length(dim(attr(Z,"value"))),mean)
+        attr(Z,"value") <- aperm(aperm(attr(Z,"value"),c(length(dim(attr(Z,"value"))),
+            c(seq_len(length(dim(attr(Z,"value")))-1))))/mean,
+            c(c(2:length(dim(attr(Z,"value"))),1)))
     }
-    hosvd(as.tensor(Z@value),dims)
+    hosvd(as.tensor(attr(Z,"value")),dims)
 }

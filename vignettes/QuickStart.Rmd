@@ -63,7 +63,7 @@ Then we reformat count data, txi\$counts, as a tensor, $Z$, whose dimension is $
 ```{r}
 Z <- PrepareSummarizedExperimentTensor(matrix(samples$sample,c(3,2)),
     rownames(txi$abundance),array(txi$counts,c(dim(txi$counts)[1],3,2)))
-dim(Z@value)
+dim(attr(Z,"value"))
 HOSVD <- computeHosvd(Z)
 ```
 Here 3 and 2 stand for the number of samples in each class and the number of classes, respectively. HOSVD includes output from HOSVD.
@@ -142,4 +142,6 @@ These are associated with $P=0$. Thus, sucessful.
 Next we try to see how we can make use of TDbasedUFE to perform multiomics analyses.
 
 
-
+```{r}
+sessionInfo()
+```
