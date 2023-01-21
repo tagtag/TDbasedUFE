@@ -1,0 +1,145 @@
+---
+title: "QuickStart"
+author:
+- name: Y-h. Taguchi
+  affiliation:  Department of Physics, Chuo University, Tokyo 112-8551, Japan
+  email: tag@granular.com
+output: rmarkdown::html_vignette
+bibliography: references.bib 
+vignette: >
+  %\VignetteIndexEntry{QuickStart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+```{r setup}
+library(TDbasedUFE)
+```
+
+Here I introduce how we can use TDbasedUFE to process real data.
+
+## Gene expression.
+
+Here is how we can process real data.
+First we prepare the data set from tximportdata oackge
+```{r}
+require(GenomicRanges)
+require(rTensor)
+library("readr")
+library("tximport")
+library("tximportData")
+dir <- system.file("extdata", package="tximportData")
+samples <- read.table(file.path(dir,"samples.txt"), header=TRUE)
+samples$condition <- factor(rep(c("A","B"),each=3))
+rownames(samples) <- samples$run
+samples[,c("pop","center","run","condition")]
+files <- file.path(dir,"salmon", samples$run, "quant.sf.gz")
+names(files) <- samples$run
+tx2gene <- read_csv(file.path(dir, "tx2gene.gencode.v27.csv"))
+txi <- tximport(files, type="salmon", tx2gene=tx2gene)
+```
+
+As can be seen on the above, this data set is composed of six samples, which are divided into two classes, each of which includes three out of six samples.
+The numer of features is 58288
+```{r}
+dim(txi$counts)
+```
+which is too many to excute small desktops, we reduce number of features to 10,000
+```{r}
+txi[seq_len(3)] <-
+    lapply(txi[seq_len(3)],function(x){dim(x);x[seq_len(10000),]})
+```
+
+Then we reformat count data, txi\$counts, as a tensor, $Z$, whose dimension is $10000 \times 3 \times 2$ and HOSVD was applied to $Z$ to get tensor decomposition using function computeHosvd.
+```{r}
+Z <- PrepareSummarizedExperimentTensor(matrix(samples$sample,c(3,2)),
+    rownames(txi$abundance),array(txi$counts,c(dim(txi$counts)[1],3,2)))
+dim(Z@value)
+HOSVD <- computeHosvd(Z)
+```
+Here 3 and 2 stand for the number of samples in each class and the number of classes, respectively. HOSVD includes output from HOSVD.
+Next, we need to decide which singular value vectors are used for the download analysis interacxtively. Since vignettes has no ability to store the output from 
+interactive outpur from R, you have to input here as
+
+input_all <- selectSingularValueVectorSmall(HOSVD)
+
+to perform function selectSingularValueVectorSmall in the interactive mode. 
+Then you get  the following prompt and graphic.
+```
+1: NEXT
+2: PREV
+3: SELCT
+
+Selection: 
+```
+![First view](./fig4.jpg)
+This display the first singular value vectors attributed to three samples in
+individual class. Since we are intersted in gene expression independent of the difference of three samples, we decide to select this one. Then type 3 and press enter to select this one.
+
+Then you get the same prompt and the distinct graphic
+```
+1: NEXT
+2: PREV
+3: SELCT
+
+Selection: 
+```
+![Second view](./fig5.jpg)
+
+This represents the first singular value vector attributed to two classes. 
+Since we are not interested in the gene expression which is common between two
+classes, we would like to skip this one. Then, type 1 and press enter.
+We get the following promt as well as graphic.
+
+
+```
+1: NEXT
+2: PREV
+3: SELCT
+
+Selection: 
+```
+![Third view](./fig6.jpg)
+
+This reprsent the second singular value vector attributed to two classes. Since it is what we are interested in, we decide to select. Type 3 and press enter.
+Now 1 and 2 is entered in input_all. Since it cannot be down in Rmarkdown, in the 
+following, we manually enter 1 and 2 into input_all and execute selectFature 
+function (When interactive mode, you do not have to enter 1 and 2 into input_all,
+since they were entered into input_all in the above). 
+
+```{r, fig.keep = "none"}
+input_all <- c(1,2) #this does not have to be executed in the interactive mode.
+index <- selectFeature(HOSVD,input_all)
+```
+
+We get the following graphic.
+The left one represents the dipendence of "flatness" of histogram of $P$-values 
+computed with assuming the null hypothesis.  More or less it can select smallet value.
+Thus it is sucessful.
+The right one represents the histogram of 1-$P$-values. Peak at right end corresponds to genes selected (The peak at the left end does not have any meaning since they corresponds to $P \simeq 1$). 
+
+![Output from selectFeature](./fig7.jpg)
+
+Then we try to see top ranked features
+
+```{r}
+head(tableFeatures(Z,index))
+```
+
+These are associated with $P=0$. Thus, sucessful.
+
+# Multiomics data analysis
+
+Next we try to see how we can make use of TDbasedUFE to perform multiomics analyses.
+
+
+
