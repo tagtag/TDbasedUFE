@@ -15,7 +15,7 @@ You can install the development version of TDbasedUFE from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("tagtag/TDbasedUFE")
+devtools::install_github("tagtag/TDbasedUFE",build_vignettes = TRUE)
 ```
 
 # TDbasedUFE
@@ -45,4 +45,13 @@ Please cite the book as:
 
 [\[DOI\]](https://doi.org/10.1007/978-3-030-22456-1)
 
+## Vignettes
+
+How to use it 
+
+vignette("QuickStart")
+
+For more theoretical backgrgound
+
+vignette("TDbasedUFE")
 
