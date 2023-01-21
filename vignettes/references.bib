@@ -1,3 +1,40 @@
+@article {Roy2022,
+	author = {Roy, Sanjiban Sekhar and Taguchi, Y-H.},
+	title = {Tensor Decomposition and Principal Component Analysis-Based Unsupervised Feature Extraction Outperforms State-of-the-Art Methods When Applied to Histone Modification Profiles},
+	elocation-id = {2022.04.29.490081},
+	year = {2022},
+	doi = {10.1101/2022.04.29.490081},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {Identification of histone modification from datasets that contain high-throughput sequencing data is difficult. Although multiple methods have been developed to identify histone modification, most of these methods are not specific for histone modification but are general methods that aim to identify protein binding to the genome. In this study, tensor decomposition (TD) and principal component analysis (PCA)-based unsupervised feature extraction with optimized standard deviation were successfully applied to gene expression and DNA methylation. The proposed method was used to identify histone modification. Histone modification along the genome is binned within the region of length L. Considering principal components (PCs) or singular value vectors (SVVs) that TD or PCA attributes to samples, we can select PCs or SVVs attributed to regions. The selected PCs and SVVs further attribute P-values to regions, and adjusted P-values are used to select regions. The proposed method identified various histone modifications successfully and outperformed various state-of-the-art methods. This method is expected to serve as a de facto standard method to identify histone modification.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2022/10/24/2022.04.29.490081},
+	eprint = {https://www.biorxiv.org/content/early/2022/10/24/2022.04.29.490081.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article {Taguchi2022,
+	author = {Taguchi, Y-H. and Turki, Turki},
+	title = {Principal component analysis- and tensor decomposition-based unsupervised feature extraction to select more suitable differentially methylated cytosines: Optimization of standard deviation versus state-of-the-art methods},
+	elocation-id = {2022.04.02.486807},
+	year = {2023},
+	doi = {10.1101/2022.04.02.486807},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {In contrast to RNA-seq analysis, which has various standard methods, no standard methods for identifying differentially methylated cytosines (DMCs) exist. To identify DMCs, we tested principal component analysis and tensor decomposition-based unsupervised feature extraction with optimized standard deviation, which has been shown to be effective for differentially expressed gene (DEG) identification. The proposed method outperformed certain conventional methods, including those that assume beta-binomial distribution for methylation as the proposed method does not require this, especially when applied to methylation profiles measured using high throughput sequencing. DMCs identified by the proposed method also significantly overlapped with various functional sites, including known differentially methylated regions, enhancers, and DNase I hypersensitive sites. The proposed method was applied to data sets retrieved from The Cancer Genome Atlas to identify DMCs using American Joint Committee on Cancer staging system edition labels. This suggests that the proposed method is a promising standard method for identifying DMCs.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2023/01/11/2022.04.02.486807},
+	eprint = {https://www.biorxiv.org/content/early/2023/01/11/2022.04.02.486807.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article{Taguchi2022a,
+year = {2022},
+title = {{Adapted tensor decomposition and PCA based unsupervised feature extraction select more biologically reasonable differentially expressed genes than conventional methods}},
+author = {Taguchi, Y-H and Turki, Turki},
+journal = {Scientific Reports},
+doi = {10.1038/s41598-022-21474-z},
+abstract = {{Tensor decomposition- and principal component analysis-based unsupervised feature extraction were proposed almost 5 and 10 years ago, respectively; although these methods have been successfully applied to a wide range of genome analyses, including drug repositioning, biomarker identification, and disease-causing genes窶・identification, some fundamental problems have been identified: the number of genes identified was too small to assume that there were no false negatives, and the histogram of P values derived was not fully coincident with the null hypothesis that principal component and singular value vectors follow the Gaussian distribution. Optimizing the standard deviation such that the histogram of P values is as much as possible coincident with the null hypothesis results in an increase in the number and biological reliability of the selected genes. Our contribution was that we improved these methods so as to be able to select biologically more reasonable differentially expressed genes than the state of art methods that must empirically assume negative binomial distributions and dispersion relation, which is required for the selecting more expressed genes than less expressed ones, which can be achieved by the proposed methods that do not have to assume these.}},
+pages = {17438},
+number = {1},
+volume = {12}
+}
 @Manual{DelayedTensor,
     title = {DelayedTensor: R package for sparse and out-of-core arithmetic and
 decomposition of Tensor},
