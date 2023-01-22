@@ -41,7 +41,7 @@ Z <- PrepareSummarizedExperimentTensorSquare(
     mRNA=rownames(CLL_data$mRNA),Mutations=rownames(CLL_data$Mutations)),
     value=convertSquare(CLL_data),sampleData=list(CLL_covariates[,1]))
 HOSVD <- computeHosvdSqure(Z)
-cond <- list(Z@sampleData[[1]],Z@sampleData[[1]],seq_len(4))
+cond <- list(attr(Z,"sampleData")[[1]],attr(Z,"sampleData")[[1]],seq_len(4))
 input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(8,1))
 index <- selectFeatureSquare(HOSVD,input_all,CLL_data,
     de=c(0.3,0.03,0.1,0.1),interact=FALSE)

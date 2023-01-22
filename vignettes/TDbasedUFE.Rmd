@@ -128,8 +128,28 @@ The following is the step to optimized $\sigma_{\ell_1}$.
 1. Finally, we identify excluded $i$s  as the selected features because these $i$s do not obey Gaussian (Null hypothesis)  
 
 
+# Multiomics data analysis
 
+When we have multiomics data set composed of $K$ omics data measured on common $M$ samples as
+$$
+x_{i_k j k} \in \mathbb{R}^{N_k \times M \times K}
+$$
+where $N_k$ is the number of features in $k$th omics data, we can make use of a tensor which is a bundle of linear kanel[@Taguchi2022b]. In this case, we can generate liner kernel of $k$th omics data as
+$$
+  x_{jj'k} = \sum_{i_k} x_{i_kjk}x_{i_kj'k} \in \mathbb{R}^{M \times M \times K}
+$$
+to which HOSVD was applied and we get
+$$
+x_{jj'k} = \sum_{\ell_1} \sum_{\ell_2} \sum_{\ell_3} G(\ell_1 \ell_2 \ell_3) u_{\ell_1 j} u_{\ell_2 j'} u_{\ell_3 k} 
+$$
+where $\ell_1$ and $\ell_2$ are exchangable since $x_{jj'k} = x_{j'jk}$.
+Singular values attributed to features can be retrived as
+$$
+u_{\ell i_k} = \sum_j x_{i_kj} u_{\ell j}
+$$
+Then the same procedure was applied to $u_{\ell i}$ in order to select features.
 
+![Multiomics analysis](./fig15.jpg){width=50%}
 
 # Conclusions
 

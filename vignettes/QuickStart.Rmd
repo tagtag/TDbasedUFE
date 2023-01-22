@@ -155,7 +155,7 @@ CLL_data is composed of four omics data,
  * mRNA: normalized expression values for the 5000 most variable genes
  * Mutations: Mutation status for 69 selected genes
 
-each of which was converted to squared matrix (i. e., liear kernel[@Taguchi2022a])and they are bundle as one tensor using PrepareSummarizedExperimentTensorSquare function, to which HOSVD is applied as follows.
+each of which was converted to squared matrix (i. e., liner kernel[@Taguchi2022b])and they are bundle as one tensor using PrepareSummarizedExperimentTensorSquare function, to which HOSVD is applied as follows.
 ```{r}
 Z <- PrepareSummarizedExperimentTensorSquare(
     sample=matrix(colnames(CLL_data$Drugs),1),
@@ -168,7 +168,7 @@ HOSVD <- computeHosvdSqure(Z)
 CLL_covariate is labeling information, among which we employed the distinction between male (m) and female (f).
 ```{r}
 table(CLL_covariates[,1])
-cond <- list(Z@sampleData[[1]],Z@sampleData[[1]],seq_len(4))
+cond <- list(attr(Z,"sampleData")[[1]],attr(Z,"sampleData")[[1]],seq_len(4))
 ```
 Since a tensor is a bundle of liner kernel, the first two singular value vectors are decicated to samples and the third (last) one is dedecated to four omics classes (Drugs, Metylation, mRNA and mutations).
 In order to select which singlar value vectors are employed, we execute selectFeatureSqure function in interactive mode as follows
@@ -210,7 +210,7 @@ In the above, de=c(0.3,0.03,0.1,0.1) represents initial SD for the optimization 
 ![Plot for Mutations](./fig14.png)
 Every time you type enterin an inteartive mode, you can see one of four plots for four omics data. We can execute this also in non-intearctive mode, if we do not need to see optimized plot in detail.
 
-```{r, fig.keep=FALSE}
+```{r, fig.keep = "none"}
 index <- selectFeatureSquare(HOSVD,input_all,CLL_data,
     de=c(0.3,0.03,0.1,0.1),interact=FALSE) #for batch mode
 ```
@@ -221,8 +221,12 @@ Two vectors, index and p.value, stores logical vector that shows if individial f
 
 In order to see selected fearures for all four omics data, tableFeatureSquare function must be repeated four times as
 ```{r}
-tableFeaturesSquare(Z,index,1)
+for (id in seq_len(4)){print(head(tableFeaturesSquare(Z,index,id)))}
 ```
+# Conclusion
+
+In this vignettes, we briefly introduce how we can make use of TDbasedUFE to perform gen expression analysis and multiomics analysis. I am glad if you can make use of it as well for your own research.
+
 
 
 ```{r}
