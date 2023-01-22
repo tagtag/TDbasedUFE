@@ -86,7 +86,7 @@ The reason why we employed Tucker decomosition was fully described in my book[@T
 
 ## Tensor decomposition based unsupervised feature extraction.
 
-![Tensor decomposition based unsupervised feature extraction](./fig2.jpg){width=50%}
+![Tensor decomposition based unsupervised feature extraction](./fig2.jpg)
 
 Here we briefly describe how we can make use of HOSVD for the feature selection.
 Suppose $x_{ijk}$ represents the expression of gene $i$ of the $k$th tissue of the $j$th subject (person) and the task is to select genes whose expression is distict between patients and healthy controls only at one specific tissue.
