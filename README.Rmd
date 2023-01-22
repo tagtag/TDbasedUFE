@@ -29,6 +29,12 @@ TDbasedUFE from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("tagtag/TDbasedUFE",build_vignettes = TRUE)
 ```
+or if it does not work, try 
+
+``` r
+# install.packages("devtools")
+devtools::install_github("tagtag/TDbasedUFE")
+```
 
 # TDbasedUFE
 

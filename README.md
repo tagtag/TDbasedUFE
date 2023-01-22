@@ -18,6 +18,13 @@ You can install the development version of TDbasedUFE from
 devtools::install_github("tagtag/TDbasedUFE",build_vignettes = TRUE)
 ```
 
+or if it does not work, try 
+
+``` r
+# install.packages("devtools")
+devtools::install_github("tagtag/TDbasedUFE")
+```
+
 # TDbasedUFE
 
 **Tensor decomposition based unsupervised feature extraction**
