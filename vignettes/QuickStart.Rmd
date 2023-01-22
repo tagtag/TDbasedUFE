@@ -4,13 +4,24 @@ author:
 - name: Y-h. Taguchi
   affiliation:  Department of Physics, Chuo University, Tokyo 112-8551, Japan
   email: tag@granular.com
-output: rmarkdown::html_vignette
+output: 
+    BiocStyle::html_document:
+    toc: true
 bibliography: references.bib 
 vignette: >
   %\VignetteIndexEntry{QuickStart}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+<!--
+%% \VignetteEngine{knitr::knitr}
+-->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+```
+
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -26,6 +37,8 @@ library(TDbasedUFE)
 ```
 
 Here I introduce how we can use TDbasedUFE to process real data.
+
+# Data Analyses
 
 ## Gene expression.
 
@@ -138,7 +151,7 @@ head(tableFeatures(Z,index))
 
 These are associated with $P=0$. Thus, sucessful.
 
-# Multiomics data analysis
+## Multiomics data analysis
 
 Next we try to see how we can make use of TDbasedUFE to perform multiomics analyses.
 In order that, we prepare data set using MOFAdata package as follows.

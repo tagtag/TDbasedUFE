@@ -39,6 +39,7 @@ Imports:
 RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE)
 Suggests: 
+    BiocStyle,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)

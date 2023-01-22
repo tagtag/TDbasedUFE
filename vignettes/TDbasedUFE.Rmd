@@ -4,13 +4,22 @@ author:
 - name: Y-h. Taguchi
   affiliation:  Department of Physics, Chuo University, Tokyo 112-8551, Japan
   email: tag@granular.com
-output: rmarkdown::html_vignette
+output: 
+    BiocStyle::html_document:
+        toc: true
 bibliography: references.bib 
 vignette: >
-  %\VignetteIndexEntry{TDbasedUFE}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{TDbasedUFE}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
+<!--
+%% \VignetteEngine{knitr::knitr}
+-->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+```
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -145,7 +154,7 @@ $$
 where $\ell_1$ and $\ell_2$ are exchangable since $x_{jj'k} = x_{j'jk}$.
 Singular values attributed to features can be retrived as
 $$
-u_{\ell i_k} = \sum_j x_{i_kj} u_{\ell j}
+u_{\ell i_k} = \sum_j u_{\ell j} x_{i_kj} 
 $$
 Then the same procedure was applied to $u_{\ell i}$ in order to select features.
 
