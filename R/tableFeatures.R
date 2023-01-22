@@ -19,7 +19,7 @@
 #'         value=array(runif(10000*3*3),c(10,3,3)))
 #' head(tableFeatures(Z,index))
 tableFeatures <- function(Z,index){
-    TABLE <- data.frame(Z@feature[index$index],
+    TABLE <- data.frame(attr(Z,"feature")[index$index],
         index$p.value[index$index],
         p.adjust(index$p.value,"BH")[index$index])
     colnames(TABLE) <- c("Feature","p value","adjusted p value")

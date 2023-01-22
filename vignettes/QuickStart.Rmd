@@ -70,8 +70,9 @@ Here 3 and 2 stand for the number of samples in each class and the number of cla
 Next, we need to decide which singular value vectors are used for the download analysis interacxtively. Since vignettes has no ability to store the output from 
 interactive outpur from R, you have to input here as
 
+```
 input_all <- selectSingularValueVectorSmall(HOSVD)
-
+```
 to perform function selectSingularValueVectorSmall in the interactive mode. 
 Then you get  the following prompt and graphic.
 ```
@@ -140,6 +141,88 @@ These are associated with $P=0$. Thus, sucessful.
 # Multiomics data analysis
 
 Next we try to see how we can make use of TDbasedUFE to perform multiomics analyses.
+In order that, we prepare data set using MOFAdata package as follows.
+```{r}
+require(MOFAdata)
+data("CLL_data")
+data("CLL_covariates")
+help(CLL_data)
+```
+CLL_data is composed of four omics data, 
+
+ * Drugs: viability values in response to 310 different drugs and concentrations
+ * Methylation: methylation M-values for the 4248 most variable CpG sites
+ * mRNA: normalized expression values for the 5000 most variable genes
+ * Mutations: Mutation status for 69 selected genes
+
+each of which was converted to squared matrix (i. e., liear kernel[@Taguchi2022a])and they are bundle as one tensor using PrepareSummarizedExperimentTensorSquare function, to which HOSVD is applied as follows.
+```{r}
+Z <- PrepareSummarizedExperimentTensorSquare(
+    sample=matrix(colnames(CLL_data$Drugs),1),
+    feature=list(Drugs=rownames(CLL_data$Drugs),
+    Methylation=rownames(CLL_data$Methylation),
+    mRNA=rownames(CLL_data$mRNA),Mutations=rownames(CLL_data$Mutations)),
+    value=convertSquare(CLL_data),sampleData=list(CLL_covariates[,1]))
+HOSVD <- computeHosvdSqure(Z)
+```
+CLL_covariate is labeling information, among which we employed the distinction between male (m) and female (f).
+```{r}
+table(CLL_covariates[,1])
+cond <- list(Z@sampleData[[1]],Z@sampleData[[1]],seq_len(4))
+```
+Since a tensor is a bundle of liner kernel, the first two singular value vectors are decicated to samples and the third (last) one is dedecated to four omics classes (Drugs, Metylation, mRNA and mutations).
+In order to select which singlar value vectors are employed, we execute selectFeatureSqure function in interactive mode as follows
+```
+input_all <- selectSingularValueVectorLarge(HOSVD,cond)
+```
+When we get the following prompt and graphics
+```
+1: NEXT
+2: PREV
+3: SELCT
+
+Selection: 
+```
+![The first one](./fig8.png)
+Since it is not distict between femal and male, we do not select this, thus type 1 and press enter. In actual, the one relatively distinct between male and female is the eight one. Try to show the eighth one with typing 1 to skip other ones.
+![The eighth one](./fig9.png)
+Then type 3 and press enter to select this one. 
+![Singular value vector attributed to four omics](./fig10.png)
+
+
+Since rmarkdown does not allow us to perform intarctive mode, we execute it here in a non-interactive mode.
+
+``` {r}
+input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(8,1))
+```
+
+Net we need to select singular value vectors attributed to four omics data. Since the first one is most common between four ones, we select this one. Type 3 and press enter.
+
+Now we come to the stage to select features. Since there are four features, we need to optimize SD for each of them. Try to execute selectFeatureSquare in an inyteractive mode as follows.
+``` 
+index <- selectFeatureSquare(HOSVD,input_all,CLL_data,
+    de=c(0.3,0.03,0.1,0.1))
+```
+In the above, de=c(0.3,0.03,0.1,0.1) represents initial SD for the optimization of SD for each of four omics. There might be need for some trial \& errors to get good initila values.
+![Plot for Drugs](./fig11.png)
+![Plot for Methylation](./fig12.png)
+![Plot for mRNA](./fig13.png)
+![Plot for Mutations](./fig14.png)
+Every time you type enterin an inteartive mode, you can see one of four plots for four omics data. We can execute this also in non-intearctive mode, if we do not need to see optimized plot in detail.
+
+```{r, fig.keep=FALSE}
+index <- selectFeatureSquare(HOSVD,input_all,CLL_data,
+    de=c(0.3,0.03,0.1,0.1),interact=FALSE) #for batch mode
+```
+
+Now the ourput includes four lists each of which corresponds to one of four omics data.
+Each list is composed of two vectors whose length is equivalent to the number of fearures in each of omics data. 
+Two vectors, index and p.value, stores logical vector that shows if individial features are selected and raw $P$-values.
+
+In order to see selected fearures for all four omics data, tableFeatureSquare function must be repeated four times as
+```{r}
+tableFeaturesSquare(Z,index,1)
+```
 
 
 ```{r}

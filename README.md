@@ -51,7 +51,7 @@ How to use it
 
 vignette("QuickStart")
 
-For more theoretical backgrgound
+For more theoretical background
 
 vignette("TDbasedUFE")
 
