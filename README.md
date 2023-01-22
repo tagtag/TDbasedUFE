@@ -10,6 +10,13 @@ The goal of TDbasedUFE is to …
 
 ## Installation
 
+You can install the latest release of TDbasedUFE from
+[GitHub](https://github.com/) with:
+
+```{r}
+devtools::install_github("tagtag/TDbasedUFE@v0.1.0")
+```
+
 You can install the development version of TDbasedUFE from
 [GitHub](https://github.com/) with:
 
