@@ -60,7 +60,7 @@ some of vectors. For example, $x_{ijk} \in \mathbb{R}^{N \times M \times K}$ can
 be decomposed into the product sum of three vectors, $\mathbb{R}^N,
 \mathbb{R}^M$, and $\mathbb{R}^K$. 
 
-![Tensor Decompositions](./fig1.jpg){width=50%}
+![Tensor Decompositions](./fig1.jpg)
 
 which can be mathematically expressed as
 $$
@@ -115,7 +115,7 @@ $$
 with excluding some of $P_i$ which is supposed to be too small to assume that obeys Gaussian (Null hypothesis).  This is because $h_n$ should be constant if all of $P_i$ follows Gaussian (Null hypothesis).  
 
 
-![Left: $\sigma_h$ as a function of $\sigma_{\ell_1}$. Right: Histogram, $h_n$, of $1-P_i$ being computed with the opitimized $\sigma_{\ell_1}$.  ](./fig3.jpg){width=50%}
+![Left: $\sigma_h$ as a function of $\sigma_{\ell_1}$. Right: Histogram, $h_n$, of $1-P_i$ being computed with the opitimized $\sigma_{\ell_1}$.  ](./fig3.jpg)
 
 The above plot is output of examples of function selectFeature in TDbasedUFE package and represents the dependence of $\sigma_h$ upon $\sigma_{\ell_1}$ as well as the resulting histogram $h_n$ of $1-P_i$ when $u_{\ell_1 i}$ is fully generated from Gaussian. The smallest $\sigma_h$ correctly corresonds to the true $\sigma_{\ell_1} (=0.01)$ and $h_n$ is almost independent of $n$ as expected. 
 
@@ -158,7 +158,7 @@ u_{\ell i_k} = \sum_j u_{\ell j} x_{i_kj}
 $$
 Then the same procedure was applied to $u_{\ell i}$ in order to select features.
 
-![Multiomics analysis](./fig15.jpg){width=50%}
+![Multiomics analysis](./fig15.jpg)
 
 # Conclusions
 
