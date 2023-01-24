@@ -37,7 +37,7 @@ Imports:
     stats,
     utils
 RoxygenNote: 7.2.0
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE) 
 Suggests: 
     BiocStyle,
     knitr,
