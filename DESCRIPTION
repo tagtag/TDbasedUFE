@@ -5,7 +5,7 @@ Version: 0.99.0
 Authors@R: 
     person("Taguchi", "Y-h.", ,
     "tag@granular.com", role = c("aut", "cre"),
-    comment = c(ORCID = "0000-0003-0867-8986"))
+    comment = c(ORCID  = "0000-0003-0867-8986"))
 Description: 
     This is a comprehensive package to perform
     Tensor decomposition based unsupervised feature extraction.
