@@ -1,6 +1,7 @@
 #' Title
 #'  Select features (for tensor generated from squared matrix)
-#' @param HOSVD output from HOSVD applied to tensor generated from squared matrix
+#' @param HOSVD output from HOSVD applied to tensor generated 
+#' from squared matrix
 #' @param input_all Selected singular value vector IDs
 #' @param Multi Multiomics data
 #' @param de Initial value for optimization of standard deviation
@@ -41,7 +42,8 @@ selectFeatureSquare<-function(HOSVD,input_all,Multi,
     Multi <- lapply(Multi,function(x){x[is.na(x)]<-0;return(x)})
     for (i in seq_len(dim(HOSVD$U[[3]])[2]))
     {
-        u<-scale(Multi[[i]] %*% HOSVD$U[[1]][,input_all[1]])
+        u<-scale(Multi[[i]] %*% HOSVD$U[[2]][,input_all[1]]) 
+        #changed [[1]] ->[[2]] in the above
         sd <- optim(de[i],function(x){th(x,breaks,p0)},
             control=list(warn.1d.NelderMead=FALSE))$par
         sd1 <- seq(0.1*sd,2*sd,by=0.1*sd)

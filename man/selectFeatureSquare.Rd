@@ -16,7 +16,8 @@ selectFeatureSquare(
 )
 }
 \arguments{
-\item{HOSVD}{output from HOSVD applied to tensor generated from squared matrix}
+\item{HOSVD}{output from HOSVD applied to tensor generated
+from squared matrix}
 
 \item{input_all}{Selected singular value vector IDs}
 

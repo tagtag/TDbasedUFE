@@ -28,7 +28,8 @@ computeHosvdSqure <-function(Z,dims=unlist(lapply(dim(attr(Z,"value")),
     if (scale)
     {
         mean <- apply(attr(Z,"value"),length(dim(attr(Z,"value"))),mean)
-        attr(Z,"value") <- aperm(aperm(attr(Z,"value"),c(length(dim(attr(Z,"value"))),
+        attr(Z,"value") <- aperm(aperm(attr(Z,"value"),
+            c(length(dim(attr(Z,"value"))),
             c(seq_len(length(dim(attr(Z,"value")))-1))))/mean,
             c(c(2:length(dim(attr(Z,"value"))),1)))
     }

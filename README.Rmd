@@ -22,6 +22,12 @@ The goal of TDbasedUFE is to ...
 
 ## Installation
 
+``` r
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("TDbasedUFE")
+```
+
 You can install the latest release of TDbasedUFE from
 [GitHub](https://github.com/) with:
 

@@ -4,7 +4,7 @@
 \name{TDbasedUFE-package}
 \alias{TDbasedUFE}
 \alias{TDbasedUFE-package}
-\title{TDbasedUFE: Tensor Decomposition Bassed Unsupervised Feature Extraction}
+\title{TDbasedUFE: Tensor Decomposition Based Unsupervised Feature Extraction}
 \description{
 This is a comprehensive package to perform Tensor decomposition based unsupervised feature extraction. It can perform unsupervised feature extraction. It uses tensor decompission. It is applicable to gene expression, DNA methylation, and histone modification etc. It can perform multiomics analysis. It is also applicable to single cell omics data sets.
 }

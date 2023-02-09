@@ -13,7 +13,7 @@ The goal of TDbasedUFE is to …
 You can install the latest release of TDbasedUFE from
 [GitHub](https://github.com/) with:
 
-``` r 
+``` r
 # install.packages("devtools")
 devtools::install_github("tagtag/TDbasedUFE@v0.1.0")
 ```
@@ -26,7 +26,7 @@ You can install the development version of TDbasedUFE from
 devtools::install_github("tagtag/TDbasedUFE",build_vignettes = TRUE)
 ```
 
-or if it does not work, try 
+or if it does not work, try
 
 ``` r
 # install.packages("devtools")
@@ -39,7 +39,7 @@ devtools::install_github("tagtag/TDbasedUFE")
 
 ## Manuscript
 
-The theoretical back graound of this package was described in the
+The theoretical back ground of this package was described in the
 following book:
 
 ***“Unsupervised Feature Extraction Applied to Bioinformatics: A PCA
@@ -62,11 +62,10 @@ Please cite the book as:
 
 ## Vignettes
 
-How to use it 
+How to use it
 
-vignette("QuickStart")
+vignette(“QuickStart”)
 
 For more theoretical background
 
-vignette("TDbasedUFE")
-
+vignette(“TDbasedUFE”)
