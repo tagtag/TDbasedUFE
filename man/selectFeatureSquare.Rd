@@ -5,15 +5,8 @@
 \title{Title
 Select features (for tensor generated from squared matrix)}
 \usage{
-selectFeatureSquare(
-  HOSVD,
-  input_all,
-  Multi,
-  de = rep(1e-04, dim(HOSVD$U[[3]])[2]),
-  p0 = 0.01,
-  breaks = 100,
-  interact = TRUE
-)
+selectFeatureSquare(HOSVD,input_all,Multi,de = rep(1e-04, dim(HOSVD$U[[3]])[2]),
+    p0 = 0.01,breaks = 100,interact = TRUE)
 }
 \arguments{
 \item{HOSVD}{output from HOSVD applied to tensor generated

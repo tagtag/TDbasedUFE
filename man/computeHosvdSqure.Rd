@@ -7,12 +7,9 @@ Compute higher order singular value decomposition from the
 tensor generated from squared matrix}
 \usage{
 computeHosvdSqure(
-  Z,
-  dims = unlist(lapply(dim(attr(Z, "value")), function(x) {
-     min(10, x)
- })),
-  scale = TRUE
-)
+    Z,
+    dims = unlist(lapply(dim(attr(Z, "value")), function(x) {
+    min(10, x)})),scale = TRUE)
 }
 \arguments{
 \item{Z}{A tensor including sample names, feature values,

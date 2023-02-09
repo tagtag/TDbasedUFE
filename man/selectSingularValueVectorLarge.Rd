@@ -26,8 +26,8 @@ Select singular value vectors from HOSVD (boxplot version)
 Z <- PrepareSummarizedExperimentTensor(
 sample=matrix(as.character(seq_len(6)),c(3,2)),
 feature=as.character(seq_len(10)),
- value=array(runif(10*3*2),c(10,3,2)))
+value=array(runif(10*3*2),c(10,3,2)))
 HOSVD <- computeHosvd(Z)
- cond <- list(0,c("A","B","C"),c("A","B"))
- input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
+cond <- list(0,c("A","B","C"),c("A","B"))
+input_all <- selectSingularValueVectorLarge(HOSVD,cond,input_all=c(1,1))
 }
