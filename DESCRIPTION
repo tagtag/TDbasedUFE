@@ -3,7 +3,7 @@ Type: Package
 Title: Tensor Decomposition Based Unsupervised Feature Extraction
 Version: 0.99.3
 Authors@R: 
-    person("Taguchi", "Y-h.", ,
+    person("Y-h.", "Taguchi", ,
     "tag@granular.com", role = c("aut", "cre"),
     comment = c(ORCID  = "0000-0003-0867-8986"))
 Description: 
@@ -14,7 +14,7 @@ Description:
     It is  applicable to gene expression, DNA methylation, and 
     histone modification etc.
     It can perform multiomics analysis.
-    It is also applicable to single cell omics data sets.
+    It is also potentially applicable to single cell omics data sets.
 biocViews: 
     GeneExpression, 
     FeatureExtraction, 
