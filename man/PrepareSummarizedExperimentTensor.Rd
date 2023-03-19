@@ -5,8 +5,13 @@
 \title{Title
 Generate feature values formatted as a tensor format}
 \usage{
-PrepareSummarizedExperimentTensor(sample,feature,value,
-    featureRange = GRanges(NULL),sampleData = list(NULL))
+PrepareSummarizedExperimentTensor(
+  sample,
+  feature,
+  value,
+  featureRange = GRanges(NULL),
+  sampleData = list(NULL)
+)
 }
 \arguments{
 \item{sample}{Sample names}
@@ -32,5 +37,5 @@ require(GenomicRanges)
 Z <- PrepareSummarizedExperimentTensor(
 sample=matrix(as.character(seq_len(6)),c(3,2)),
 feature=as.character(seq_len(10)),
-value=array(runif(10*3*2),c(10,3,2)))
+ value=array(runif(10*3*2),c(10,3,2)))
 }

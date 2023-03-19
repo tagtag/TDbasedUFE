@@ -7,15 +7,18 @@ Compute higher order singular value decomposition from the
 tensor generated from squared matrix}
 \usage{
 computeHosvdSqure(
-    Z,
-    dims = unlist(lapply(dim(attr(Z, "value")), function(x) {
-    min(10, x)})),scale = TRUE)
+  Z,
+  dims = unlist(lapply(dim(attr(Z, "value")), function(x) {
+     min(10, x)
+ })),
+  scale = TRUE
+)
 }
 \arguments{
 \item{Z}{A tensor including sample names, feature values,
 associated with featureRange and sample properties}
 
-\item{dims}{dimensions to be compued by HOSVD}
+\item{dims}{dimensions to be computed by HOSVD}
 
 \item{scale}{If value is scaled}
 }

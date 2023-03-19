@@ -7,6 +7,8 @@
 #' @import MOFAdata
 #' @import tximport
 #' @import tximportData
+#' @importFrom shiny fluidPage sidebarLayout  sidebarPanel actionButton 
+#' mainPanel plotOutput observeEvent runApp shinyApp stopApp renderPlot
 #' @importFrom methods new
 #' @importFrom GenomicRanges GRanges
 #' @importFrom rTensor hosvd as.tensor

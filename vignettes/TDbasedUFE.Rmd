@@ -40,7 +40,7 @@ BiocManager::install("TDbasedUFE")
 
 # Introduction
 
-TDbasedUFE is a R package that intends to perform various abalyses using
+TDbasedUFE is a R package that intends to perform various analyses using
 Tensor decomposition based unsupervised feature extraction (TDbasedUFE) 
 [@Taguchi2020]
 as much as possible in an user friendly manner. 
@@ -58,13 +58,13 @@ were fully described in vignettes of
 DelayedTensor[@DelayedTensor], we also briefly describe these.
 
 Tensor is a natural extension of matrix that has only rows and columns, whereas
-tensore more number of "rows" (or "columns"). For example, three mode tensor,
+tensor has more number of "rows" (or "columns"). For example, three mode tensor,
 $x_{ijk} \in \mathbb{R}^{N \times M \times K}$, has three suffix,
 $i \in \mathbb{N}, j \in \mathbb{N}$, and $k \in \mathbb{N}$, each of which 
 ranges $[1, N], [1, K]$ and $[1,M]$. 
 This representation fitted with that of genomic datasets, e. g., $x_{ijk}$ can
 represent gene expression of $i$th gene of $k$th tissue of $j$th subject
-(person). If the measurements are performed over mutliple conditions, e.g.,
+(person). If the measurements are performed over multiple conditions, e.g.,
 different time points, we can add additional sufix that corresponds to time.
 Alternatively, we can also make use of tensor to store multiomics data if we 
 can add additional suffix that represent which of multiomics data is stored
@@ -75,8 +75,8 @@ is an ideal data structure to store modern genomic observations.
 Although tensor can store very complicated structure well, it does not always
 mean that it has ability to help us to understand these complicated structure. 
 In order to decompose tensor, tensor decomposition was developed. There are
-various way to compose tensor. Usueally, tensor decomposition (TD) is to
-decompose tensor into pricuct some of vectors and tensors. 
+various way to compose tensor. Usually, tensor decomposition (TD) is to
+decompose tensor into product of some of vectors and tensors. 
 
 The most popular TD is CP decomposition, which can decompose tensor 
 into product  some of vectors. For example,
@@ -84,14 +84,14 @@ $x_{ijk} \in \mathbb{R}^{N \times M \times K}$ can
 be decomposed into the product sum of three vectors, $\mathbb{R}^N,
 \mathbb{R}^M$, and $\mathbb{R}^K$. 
 
-![Tensor Decompositions](./fig1.jpg)
+![Tensor Decomposition](./fig1.jpg)
 
 which can be mathematically expressed as
 $$
 x_{ijk} = \sum_\ell \lambda_\ell u_{\ell i} u_{\ell j} u_{\ell k}
 $$
-Alternatively, more asvanced way, tensor train decomposition,  
-can decomposes the tensor to product of a mixuture of matrix and tensor as
+Alternatively, more advanced way, tensor train decomposition,  
+can decomposes the tensor to product of a mixture of matrix and tensor as
 $$
 x_{ijk} = \sum_{\ell_1} \sum_{\ell_2} 
 R_{\ell_1 i} R_{\ell_1 \ell_2 j} R_{\ell_2 k}
@@ -108,13 +108,12 @@ $  u_{\ell_1 i} u_{\ell_2 j} u_{\ell_3 k}$ and
 $u_{\ell_1 i} \in \mathbb{R}^{N \times N},
 u_{\ell_2 j} \in \mathbb{R}^{M \times M}, 
 u_{\ell_3 k} \in \mathbb{R}^{K \times K}$ 
-are singular value matrices and are orthogonal matricies. 
+are singular value matrices and are orthogonal matrices. 
 
-Although there are no uniqueness of Tucker decomposition, we sepfifically
-employed 
-higher order singular value decomposition (HOSVD) [@Taguchi2020] to get
+Although there are no uniqueness of Tucker decomposition, we specifically
+employed higher order singular value decomposition (HOSVD) [@Taguchi2020] to get
 Tucker decomposition.
-The reason why we employed Tucker decomosition was fully described in 
+The reason why we employed Tucker decomposition was fully described in 
 my book[@Taguchi2020].
 
 
@@ -126,14 +125,14 @@ my book[@Taguchi2020].
 Here we briefly describe how we can make use of HOSVD for the feature 
 selection. Suppose $x_{ijk}$ represents the expression of gene $i$ of the
 $k$th tissue of the $j$th subject (person) and the task is to select genes 
-whose expression is distict between patients and healthy controls only at one 
+whose expression is distinct between patients and healthy controls only at one 
 specific tissue. In order that, we need to select  $u_{\ell_2 j}$ attributed 
 to $j$th subject which is distinct between healthy control and patients 
 (see (1)) and  $u_{\ell_3 k}$ attributed to $k$th tissue is $k$th tissue
 specific (see (2)). Then we next identify which $G(\ell_1 \ell_2 \ell_3)$ 
 has the largest absolute value with fixed $\ell_2$ and $\ell_3$ that
-correspond to ditinction between patient and healthy control and tissue 
-specificity, respectvely (see (3)). Finally, with assuming that 
+correspond to distinction between patient and healthy control and tissue 
+specificity, respectively (see (3)). Finally, with assuming that 
 $u_{\ell_1 i}$ obeys Gaussian distribution (null hypothesis), $P$-values 
 are attributed to $i$th gene.
 $P$-values are corrected with considering multiple comparison corrections
@@ -146,12 +145,12 @@ selected (see (4) and (5)).
 Although TD based unsupervised FE was proposed five years ago, it was 
 successfully applied to wide range of genomic science, together with the 
 proto type method, principal component analysis (PCA) based unsupervised
-FE proposed ten years ago, we recently recognize that the oprimization of 
+FE proposed ten years ago, we recently recognize that the optimization of 
 the standard deviation (SD) in Gaussian  distribution employed as the null
 hypothesis drastically improved the performance[@Taguchi2022a] 
 [@Taguchi2022] [@Roy2022].
 How we can optimize SD and why the optimization of SD can improve the
-perfoemance is as follows. Previously, we computed SD of 
+performance is as follows. Previously, we computed SD of 
 $u_{\ell_1 i}$, $\sigma_{\ell_1}$ as
 $$
 \sigma_{\ell_1} = \sqrt{\frac{1}{N} \sum_i \left ( u_{\ell_1 i} - 
@@ -161,7 +160,7 @@ $$
 \langle u_{\ell_1 i} \rangle = \frac{1}{N} \sum_i u_{\ell_1 i}.
 $$
 However, $\sigma_{\ell_1}$ has tendency to be over estimated since some
-of $i$th does not follow Gaussian distrbution and has too large 
+of $i$th does not follow Gaussian distribution and has too large 
 absolute values.
 In order to exclude those $i$ that does not follow Gaussian, we tried 
 to minimize SD of $h_n$ which is the frequency of $P_i$ computed 
@@ -183,13 +182,13 @@ $h_n$ should be constant if all of $P_i$ follows Gaussian (Null hypothesis).
 
 ![Left: $\sigma_h$ as a function of $\sigma_{\ell_1}$. 
 Right: Histogram, $h_n$, of $1-P_i$ being computed 
-with the opitimized $\sigma_{\ell_1}$.  ](./fig3.jpg)
+with the optimized $\sigma_{\ell_1}$.  ](./fig3.jpg)
 
 
 The above plot is output of examples of function selectFeature in TDbasedUFE
 package and represents the dependence of $\sigma_h$ upon $\sigma_{\ell_1}$ 
 as well as the resulting histogram $h_n$ of $1-P_i$ when $u_{\ell_1 i}$ is 
-fully generated from Gaussian. The smallest $\sigma_h$ correctly corresonds 
+fully generated from Gaussian. The smallest $\sigma_h$ correctly corresponds 
 to the true $\sigma_{\ell_1} (=0.01)$ and $h_n$ is almost independent of $n$ 
 as expected. 
 
@@ -233,8 +232,8 @@ $$
 x_{jj'k} = \sum_{\ell_1} \sum_{\ell_2} \sum_{\ell_3} G(\ell_1 \ell_2 \ell_3)
 u_{\ell_1 j} u_{\ell_2 j'} u_{\ell_3 k} 
 $$
-where $\ell_1$ and $\ell_2$ are exchangable since $x_{jj'k} = x_{j'jk}$.
-Singular values attributed to features can be retrived as
+where $\ell_1$ and $\ell_2$ are exchangeable, since $x_{jj'k} = x_{j'jk}$.
+Singular values attributed to features can be retrieved as
 $$
 u_{\ell i_k} = \sum_j u_{\ell j} x_{i_kj} 
 $$

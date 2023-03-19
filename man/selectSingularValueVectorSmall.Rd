@@ -24,7 +24,7 @@ Select singular value vectors from HOSVD
 Z <- PrepareSummarizedExperimentTensor(
 sample=matrix(as.character(seq_len(6)),c(3,2)),
 feature=as.character(seq_len(10)),
-value=array(runif(10*3*2),c(10,3,2)))
-HOSVD <- computeHosvd(Z)
+ value=array(runif(10*3*2),c(10,3,2)))
+ HOSVD <- computeHosvd(Z)
 input_all <- selectSingularValueVectorSmall(HOSVD,input_all=c(1,1))
 }

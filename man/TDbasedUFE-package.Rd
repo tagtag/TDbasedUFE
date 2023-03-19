@@ -6,24 +6,18 @@
 \alias{TDbasedUFE-package}
 \title{TDbasedUFE: Tensor Decomposition Based Unsupervised Feature Extraction}
 \description{
-This is a comprehensive package to perform Tensor decomposition based 
-unsupervised feature extraction. It can perform unsupervised feature 
-extraction. It uses tensor decompission. It is applicable to gene
-expression, DNA methylation, and histone modification etc. It can
-perform multiomics analysis. It is also applicable to single cell 
-omics data sets.
+This is a comprehensive package to perform Tensor decomposition based unsupervised feature extraction. It can perform unsupervised feature extraction. It uses tensor decomposition. It is applicable to gene expression, DNA methylation, and histone modification etc. It can perform multiomics analysis. It is also potentially applicable to single cell omics data sets.
 }
 \seealso{
 Useful links:
 \itemize{
-\item \url{https://github.com/tagtag/TDbasedUFE}
-\item Report bugs at \url{https://github.com/tagtag/TDbasedUFE/issues}
+  \item \url{https://github.com/tagtag/TDbasedUFE}
+  \item Report bugs at \url{https://github.com/tagtag/TDbasedUFE/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Taguchi Y-h.
-\email{tag@granular.com} (\href{https://orcid.org/0000-0003-0867-8986}{ORCID})
+\strong{Maintainer}: Y-h. Taguchi \email{tag@granular.com} (\href{https://orcid.org/0000-0003-0867-8986}{ORCID})
 
 }
 \keyword{internal}

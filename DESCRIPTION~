@@ -1,7 +1,7 @@
 Package: TDbasedUFE
 Type: Package
 Title: Tensor Decomposition Based Unsupervised Feature Extraction
-Version: 0.99.5
+Version: 0.99.3
 Authors@R: 
     person("Y-h.", "Taguchi", ,
     "tag@granular.com", role = c("aut", "cre"),
@@ -10,7 +10,7 @@ Description:
     This is a comprehensive package to perform
     Tensor decomposition based unsupervised feature extraction.
     It can perform unsupervised feature extraction.
-    It uses tensor decomposition.
+    It uses tensor decompission.
     It is  applicable to gene expression, DNA methylation, and 
     histone modification etc.
     It can perform multiomics analysis.
@@ -35,9 +35,8 @@ Imports:
     tximportData,
     graphics,
     stats,
-    utils,
-    shiny
-RoxygenNote: 7.2.3
+    utils
+RoxygenNote: 7.2.0
 Roxygen: list(markdown = TRUE) 
 Suggests: 
     BiocStyle,

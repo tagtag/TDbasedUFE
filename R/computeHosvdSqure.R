@@ -3,7 +3,7 @@
 #'  tensor generated from squared matrix
 #' @param Z A tensor including sample names, feature values,
 #'  associated with featureRange and sample properties
-#' @param dims dimensions to be compued by HOSVD
+#' @param dims dimensions to be computed by HOSVD
 #' @param scale  If value is scaled
 #'
 #' @return List that includes output from HOSVD

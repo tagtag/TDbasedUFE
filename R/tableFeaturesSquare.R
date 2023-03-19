@@ -1,5 +1,5 @@
 #' Title
-#' Show selecte featues as Table (for Squared one)
+#' Show selected features as Table (for Squared one)
 #' @param Z Tensor of features
 #' @param index List that includes selected features and P-values
 #' @param id feature to be shown

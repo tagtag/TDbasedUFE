@@ -10,7 +10,7 @@ computeHosvd(Z, dims = c(10, dim(attr(Z, "value"))[-1]), scale = TRUE)
 \arguments{
 \item{Z}{array that includes omics data}
 
-\item{dims}{dimensions to be compued by HOSVD}
+\item{dims}{dimensions to be computed by HOSVD}
 
 \item{scale}{If value is scaled}
 }

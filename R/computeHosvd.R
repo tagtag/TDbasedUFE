@@ -1,7 +1,7 @@
 #' Title
 #' Compute higher order singular value decomposition
 #' @param Z array that includes omics data
-#' @param dims dimensions to be compued by HOSVD
+#' @param dims dimensions to be computed by HOSVD
 #' @param scale If value is scaled
 #'
 #' @return List that includes output from HOSVD

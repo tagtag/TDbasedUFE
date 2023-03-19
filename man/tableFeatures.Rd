@@ -3,7 +3,7 @@
 \name{tableFeatures}
 \alias{tableFeatures}
 \title{Title
-Show selecte featues as Table}
+Show selected features as Table}
 \usage{
 tableFeatures(Z, index)
 }
@@ -17,7 +17,7 @@ Table list of selected features
 }
 \description{
 Title
-Show selecte featues as Table
+Show selected features as Table
 }
 \examples{
 set.seed(2)

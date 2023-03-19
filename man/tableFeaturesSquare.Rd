@@ -3,7 +3,7 @@
 \name{tableFeaturesSquare}
 \alias{tableFeaturesSquare}
 \title{Title
-Show selecte featues as Table (for Squared one)}
+Show selected features as Table (for Squared one)}
 \usage{
 tableFeaturesSquare(Z, index, id)
 }
@@ -19,7 +19,7 @@ Table list of selected features
 }
 \description{
 Title
-Show selecte featues as Table (for Squared one)
+Show selected features as Table (for Squared one)
 }
 \examples{
 omics1 <- matrix(runif(100000),ncol=10)
