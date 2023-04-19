@@ -41,7 +41,7 @@ selectSingularValueVectorSmall <- function(HOSVD,input_all=NULL){
                     if (j!=1){j<<-j-1}
                 })  
                 observeEvent(input$select, {
-                    input_all <<-j ; stopApp()
+                ; stopApp()
                 })  
                 output$plot <- renderPlot({
                     input$action

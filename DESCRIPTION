@@ -1,7 +1,7 @@
 Package: TDbasedUFE
 Type: Package
 Title: Tensor Decomposition Based Unsupervised Feature Extraction
-Version: 0.99.6
+Version: 0.99.7
 Authors@R: 
     person("Y-h.", "Taguchi", ,
     "tag@granular.com", role = c("aut", "cre"),
